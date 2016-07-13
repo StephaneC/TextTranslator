@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">TextTranslator</string>
+    <string name="ok">Valider</string>
+    <string name="permission_camera_rationale">Pour utiliser cette application, nous avons besoin
+        d\'accéder à votre caméra. Merci
+    </string>
+    <string name="no_camera_permission">No access to camera allowed</string>
+    <string name="low_storage_error">Not enough space on device</string>
+</resources>
