@@ -34,6 +34,7 @@ import castrec.stephane.texttranslator.ui.camera.GraphicOverlay;
  */
 public class OcrGraphic extends GraphicOverlay.Graphic {
 
+  private final String mMsg;
   private int mId;
 
   private static final int TEXT_COLOR = Color.WHITE;
@@ -44,10 +45,11 @@ public class OcrGraphic extends GraphicOverlay.Graphic {
 
   private final TextBlock mText;
 
-  OcrGraphic(GraphicOverlay overlay, TextBlock text) {
+  OcrGraphic(GraphicOverlay overlay, TextBlock text, String msg) {
     super(overlay);
 
     mText = text;
+    mMsg = msg;
 
     if (sRectPaint == null) {
       sRectPaint = new Paint();
@@ -59,7 +61,8 @@ public class OcrGraphic extends GraphicOverlay.Graphic {
     if (sTextPaint == null) {
       sTextPaint = new Paint();
       sTextPaint.setColor(TEXT_COLOR);
-      sTextPaint.setTextSize(54.0f);
+      sTextPaint.setTextSize(64.0f);
+      sTextPaint.setFakeBoldText(true);
     }
     // Redraw the overlay, as this graphic has been added.
     postInvalidate();
@@ -122,7 +125,7 @@ public class OcrGraphic extends GraphicOverlay.Graphic {
     for(Text currentText : textComponents) {
       float left = translateX(currentText.getBoundingBox().left);
       float bottom = translateY(currentText.getBoundingBox().bottom);
-      canvas.drawText(currentText.getValue(), left, bottom, sTextPaint);
+      canvas.drawText(mMsg, left, bottom, sTextPaint);
     }
   }
 }

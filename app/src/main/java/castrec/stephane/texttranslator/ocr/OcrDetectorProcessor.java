@@ -29,8 +29,10 @@ public class OcrDetectorProcessor implements Detector.Processor<TextBlock> {
       if (item != null && item.getValue() != null) {
         Log.d("Processor", "Text detected! " + item.getValue());
       }
-      OcrGraphic graphic = new OcrGraphic(mGraphicOverlay, item);
-      mGraphicOverlay.add(graphic);
+      if(item.getValue().equalsIgnoreCase("ORIGINES")) {
+        OcrGraphic graphic = new OcrGraphic(mGraphicOverlay, item, "Dernière achat : Un Vélo à 159€");
+        mGraphicOverlay.add(graphic);
+      }
     }
   }
 

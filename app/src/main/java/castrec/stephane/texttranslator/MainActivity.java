@@ -319,14 +319,17 @@ public class MainActivity extends AppCompatActivity {
             if (text != null && text.getValue() != null) {
                 Log.d(TAG, "text data is being spoken! " + text.getValue());
                 // Speak the string.
+                Toast.makeText(MainActivity.this, text.getValue(), Toast.LENGTH_LONG).show();
                 tts.speak(text.getValue(), TextToSpeech.QUEUE_ADD, null, "DEFAULT");
             }
             else {
                 Log.d(TAG, "text data is null");
+                Toast.makeText(MainActivity.this, "Text data is null", Toast.LENGTH_LONG).show();
             }
         }
         else {
             Log.d(TAG,"no text detected");
+            Toast.makeText(MainActivity.this, "no text detected", Toast.LENGTH_LONG).show();
         }
         return text != null;
     }
